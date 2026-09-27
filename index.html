@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Quote</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+    .box {
+      width: min(480px, 90%);
+      padding: 32px;
+      border-radius: 16px;
+      background: #1e293b;
+      text-align: center;
+    }
+    p { font-size: 20px; line-height: 1.4; }
+    span { color: #94a3b8; }
+    button {
+      margin-top: 16px;
+      padding: 10px 18px;
+      border: 0;
+      border-radius: 8px;
+      background: #38bdf8;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p id="quote">Click the button to get a quote.</p>
+    <span id="author"></span>
+    <br />
+    <button id="btn">New quote</button>
+  </div>
+  <script>
+    const quotes = [
+      ["The only way to do great work is to love what you do.", "Steve Jobs"],
+      ["Talk is cheap. Show me the code.", "Linus Torvalds"],
+      ["First, solve the problem. Then, write the code.", "John Johnson"],
+      ["Simplicity is the soul of efficiency.", "Austin Freeman"],
+      ["Code is like humor. When you have to explain it, it's bad.", "Cory House"]
+    ];
+
+    document.getElementById("btn").onclick = function () {
+      const item = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quote").textContent = item[0];
+      document.getElementById("author").textContent = "— " + item[1];
+    };
+  </script>
+</body>
+</html>
